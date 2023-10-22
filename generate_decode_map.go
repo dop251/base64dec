@@ -41,8 +41,10 @@ func main() {
 	for i, v := range m {
 		if i%16 == 0 {
 			fmt.Fprintf(&b, "\n\t")
+		} else {
+			fmt.Fprint(&b, " ")
 		}
-		fmt.Fprintf(&b, "0x%02x, ", v)
+		fmt.Fprintf(&b, "0x%02x,", v)
 	}
 	fmt.Fprintf(&b, "\n}\n")
 	_, err = f.Write(b.Bytes())
